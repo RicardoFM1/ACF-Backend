@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUserController, getAllUsersController, usuarioRetrieveController } from "../controllers/usuarios.controllers";
+import { createUserController, getAllUsersController, usuarioRetrieveController } from "../controllers/usuarios.controllers"
 import { validateDataMiddleware } from "../middleware/validateData.middleware";
 import { createUserSchema } from "../schemas/usuarios.schemas";
 import { validateTokenMiddleware } from "../middleware/validateToken.middleware";
