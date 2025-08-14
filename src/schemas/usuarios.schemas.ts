@@ -3,7 +3,8 @@ import {z} from "zod"
 
 export const createUserSchema = z.object({
     email: z.string().email("Email inválido"),
-    password: z.string()
+    password: z.string(),
+    admin: z.boolean().default(false)
 })
 
 export const returnUserSchema = createUserSchema.extend({

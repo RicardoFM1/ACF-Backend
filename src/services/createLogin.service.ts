@@ -25,7 +25,8 @@ export const createLoginService=async(loginData:iCreateLogin):Promise<iReturnLog
    
         const token = jwt.sign({
             id:findUser.id,
-            email:findUser.email
+            email:findUser.email,
+            admin: findUser.admin
         },
         process.env.SECRET_KEY!,
         {

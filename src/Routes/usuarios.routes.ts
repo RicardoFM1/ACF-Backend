@@ -8,4 +8,4 @@ export const usuariosRoutes:Router = Router()
 
 usuariosRoutes.post("",validateDataMiddleware(createUserSchema), createUserController)
 usuariosRoutes.get("",getAllUsersController)
-usuariosRoutes.get("/retrieve",validateTokenMiddleware,usuarioRetrieveController)
+usuariosRoutes.get("/retrieve",validateTokenMiddleware, usuarioRetrieveController)
