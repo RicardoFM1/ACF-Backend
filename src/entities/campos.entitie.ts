@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Decimal128, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Horarios } from "./horarios.entitie";
 
 @Entity("campos")
@@ -10,15 +10,17 @@ export class Campos {
     nome: string
 
     @Column()
-    lugar: string
+    endereco: string
     
     @Column()
     descricao: string
 
-    @ManyToOne(() =>Horarios)
+    @ManyToOne(() => Horarios)
     horarios: Horarios
 
     @Column()
     imagem: string
 
+    @Column({type: "decimal", precision: 10, scale: 2})
+    valor: number
 }
