@@ -18,7 +18,7 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
         
         
     })
-    const campoFind = await campoRepository.findOne({
+    const campoFind:Campos|null = await campoRepository.findOne({
         where:{
             id: agendamentoData.camposId
         },
@@ -33,12 +33,13 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
     if(!campoFind){
         throw new AppError("Campo não encontrado!")
     }
-    const createAgendamento = agendamentoRepository.create({
+    const createAgendamento:Agendamentos = agendamentoRepository.create({
         ...agendamentoData,
-        campos:  campoFind!,
-        usuarios: usuarioFind!
+        campos:  campoFind,
+        usuarios: usuarioFind
     })
     await agendamentoRepository.save(createAgendamento)
 
-return returnAgendamentoSchema.parse({...createAgendamento,campos:campoFind});
+
+return returnAgendamentoSchema.parse(createAgendamento);
 }
