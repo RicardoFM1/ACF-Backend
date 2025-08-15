@@ -14,4 +14,6 @@ export class Horarios{
     @Column()
     horario_final: string
 
+
+    
 }

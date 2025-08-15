@@ -6,5 +6,5 @@ export const CreateCamposController = async (req: Request, res: Response):Promis
     const campoData = req.body
 
     const campo:iReturnCampo = await CreateCamposService(campoData)
-    return res.status(200).json(campo)
+    return res.status(201).json(campo)
 }   

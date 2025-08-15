@@ -4,7 +4,7 @@ import { Agendamentos } from "../../entities/agendamentos.entitie";
 import { AppDataSource } from "../../data-source";
 import { Usuarios } from "../../entities/usuarios.entitie";
 import { Campos } from "../../entities/campos.entitie";
-import { application } from "express";
+
 import { AppError } from "../../errors";
 
 export const createAgendamentoService = async(agendamentoData:iCreateAgendamento):Promise<iReturnAgendamento> =>{
@@ -21,6 +21,9 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
     const campoFind = await campoRepository.findOne({
         where:{
             id: agendamentoData.camposId
+        },
+        relations:{
+            horarios:true
         }
     })
     if(!usuarioFind){
@@ -35,21 +38,7 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
         campos:  campoFind!,
         usuarios: usuarioFind!
     })
-     const agendamentoComRelacoes = await agendamentoRepository.findOne({
-  where: { id: createAgendamento.id },
-  relations: {
-    
-    usuarios: true, campos: true
-}
-  
-});
-
-if (!agendamentoComRelacoes)
-{
-    throw new AppError("Erro ao carregar agendamento.");
-}
     await agendamentoRepository.save(createAgendamento)
-    
-   
-return returnAgendamentoSchema.parse(createAgendamento);
+
+return returnAgendamentoSchema.parse({...createAgendamento,campos:campoFind});
 }
