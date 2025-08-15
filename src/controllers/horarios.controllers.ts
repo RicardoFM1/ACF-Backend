@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { CreateHorarioService } from "../services/createHorario.service";
-
+import { CreateHorarioService } from "../services/Horario/createHorario.service"
 
 export const CreateHorarioController = async (req: Request, res: Response):Promise<Response> =>{
     const horarioData = req.body

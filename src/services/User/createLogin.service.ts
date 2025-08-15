@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
-import { iCreateLogin, iReturnLogin, returnLoginSchema } from "../schemas/login.schemas";
-import { Usuarios } from "../entities/usuarios.entitie";
-import { AppDataSource } from "../data-source";
-import { AppError } from "../errors";
+import { iCreateLogin, iReturnLogin, returnLoginSchema } from "../../schemas/login.schemas";
+import { Usuarios } from "../../entities/usuarios.entitie";
+import { AppDataSource } from "../../data-source";
+import { AppError } from "../../errors";
 import jwt from "jsonwebtoken"
 import {compare} from "bcryptjs"
 export const createLoginService=async(loginData:iCreateLogin):Promise<iReturnLogin>=>{

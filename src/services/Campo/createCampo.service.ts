@@ -1,9 +1,9 @@
 import { Repository } from "typeorm";
-import { createCamposSchema, iCreateCampo, iReturnCampo, returnCamposSchema } from "../schemas/campos.schemas";
-import { Campos } from "../entities/campos.entitie";
-import { AppDataSource } from "../data-source";
-import { Horarios } from "../entities/horarios.entitie";
-import { AppError } from "../errors";
+import { createCamposSchema, iCreateCampo, iReturnCampo, returnCamposSchema } from "../../schemas/campos.schemas";
+import { Campos } from "../../entities/campos.entitie";
+import { AppDataSource } from "../../data-source";
+import { Horarios } from "../../entities/horarios.entitie";
+import { AppError } from "../../errors";
 
 
 

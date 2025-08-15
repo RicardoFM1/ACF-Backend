@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { iCreateLogin, iReturnLogin } from "../schemas/login.schemas";
-import { createLoginService } from "../services/createLogin.service";
+import { createLoginService } from "../services/User/createLogin.service";
 
 export const createLoginController=async(req:Request,res:Response):Promise<Response>=>{
 

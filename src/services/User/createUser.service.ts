@@ -1,8 +1,8 @@
 import { Repository } from "typeorm"
-import { AppDataSource } from "../data-source"
-import { Usuarios } from "../entities/usuarios.entitie"
-import {  CreateUser, ReturnUser, returnUserSchema } from "../schemas/usuarios.schemas"
-import { AppError } from "../errors"
+import { AppDataSource } from "../../data-source"
+import { Usuarios } from "../../entities/usuarios.entitie"
+import {  CreateUser, ReturnUser, returnUserSchema } from "../../schemas/usuarios.schemas"
+import { AppError } from "../../errors"
 
 export const createUserService=async(userData:CreateUser):Promise<ReturnUser>=>{
     const userRepository: Repository<Usuarios> = AppDataSource.getRepository(Usuarios)

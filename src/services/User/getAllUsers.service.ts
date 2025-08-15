@@ -1,7 +1,7 @@
 import { Repository } from "typeorm"
-import { Usuarios } from "../entities/usuarios.entitie"
-import { AppDataSource } from "../data-source"
-import { returnAllUsersSchema, ReturnUsers } from "../schemas/usuarios.schemas"
+import { Usuarios } from "../../entities/usuarios.entitie"
+import { AppDataSource } from "../../data-source"
+import { returnAllUsersSchema, ReturnUsers } from "../../schemas/usuarios.schemas"
 
 export const getAllUsersService=async():Promise<ReturnUsers>=>{
     const usersRepository:Repository<Usuarios> = AppDataSource.getRepository(Usuarios)

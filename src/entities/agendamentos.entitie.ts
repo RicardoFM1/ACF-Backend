@@ -11,15 +11,15 @@ export class Agendamentos{
     campos: Campos
 
     @Column()
-    horario: number
+    horario: string
 
     @ManyToOne(() => Usuarios)
     usuarios: Usuarios
 
     @Column()
-    dia_do_mes: number
+    dia_do_mes: string
 
     @Column()
-    mes_do_ano: number
+    mes_do_ano: string
 
 }

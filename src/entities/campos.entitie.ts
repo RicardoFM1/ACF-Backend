@@ -21,6 +21,6 @@ export class Campos {
     @Column()
     imagem: string
 
-    @Column({type: "decimal", precision: 10, scale: 2})
+    @Column()
     valor: number
 }

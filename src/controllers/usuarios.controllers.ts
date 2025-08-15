@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { createUserService } from "../services/createUser.service"
-import { getAllUsersService } from "../services/getAllUsers.service"
+import { createUserService } from "../services/User/createUser.service"
+import { getAllUsersService } from "../services/User/getAllUsers.service"
 import { ReturnUser } from "../schemas/usuarios.schemas"
 import jwt from "jsonwebtoken"
 

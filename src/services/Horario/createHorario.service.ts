@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
-import { createHorarioSchema, iCreateHorario, iReturnHorario, returnHorarioSchema } from "../schemas/horarios.schemas";
-import { AppDataSource } from "../data-source";
-import { Horarios } from "../entities/horarios.entitie";
+import { createHorarioSchema, iCreateHorario, iReturnHorario, returnHorarioSchema } from "../../schemas/horarios.schemas";
+import { AppDataSource } from "../../data-source";
+import { Horarios } from "../../entities/horarios.entitie"
 
 
 export const CreateHorarioService = async(horarioData: iCreateHorario):Promise<iReturnHorario> => {
