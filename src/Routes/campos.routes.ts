@@ -1,7 +1,10 @@
 import { Router } from "express";
-import { CreateCamposController } from "../controllers/campos.controllers";
+import { CreateCamposController, getAllCamposController } from "../controllers/campos.controllers";
 
 
 export const camposRoutes:Router = Router()
 
 camposRoutes.post("", CreateCamposController)
+camposRoutes.get("", getAllCamposController)
+camposRoutes.patch("")
+camposRoutes.delete("")

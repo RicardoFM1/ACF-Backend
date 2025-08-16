@@ -16,9 +16,12 @@ export const returnAgendamentoSchema = z.object({
     campos: returnCamposSchema,
     horario: z.string(),
     usuarios: returnUserSchema,
-    dia_do_mes: z.string(),
-    mes_do_ano: z.string()
+    data: z.string()
+   
 })
+
+export const returnAllAgendamentosSchema = returnAgendamentoSchema.array()
 
 export type iCreateAgendamento = z.infer<typeof createAgendamentoSchema>
 export type iReturnAgendamento = z.infer<typeof returnAgendamentoSchema>
+export type iReturnAllAgendamentos = z.infer<typeof returnAllAgendamentosSchema>

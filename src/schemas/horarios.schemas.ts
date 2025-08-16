@@ -1,3 +1,4 @@
+import e from "express";
 import z from "zod";
 
 export const createHorarioSchema = z.object({
@@ -10,5 +11,8 @@ export const returnHorarioSchema = createHorarioSchema.extend({
     id: z.number()
 })
 
+export const returnAllHorariosSchema = returnHorarioSchema.array()
+
 export type iCreateHorario = z.infer<typeof createHorarioSchema>
 export type iReturnHorario = z.infer<typeof returnHorarioSchema>
+export type iReturnAllHorarios = z.infer<typeof returnAllHorariosSchema>

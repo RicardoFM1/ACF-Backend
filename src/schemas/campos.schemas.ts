@@ -21,5 +21,8 @@ export const returnCamposSchema = z.object({
     horarios: returnHorarioSchema
 })
 
+export const returnAllCamposSchema = returnCamposSchema.array() 
+
 export type iCreateCampo = z.infer<typeof createCamposSchema>
 export type iReturnCampo = z.infer<typeof returnCamposSchema>
+export type iReturnAllCampos = z.infer<typeof returnAllCamposSchema>

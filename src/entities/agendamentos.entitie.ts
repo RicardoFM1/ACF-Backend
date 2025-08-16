@@ -17,9 +17,7 @@ export class Agendamentos{
     usuarios: Usuarios
 
     @Column()
-    dia_do_mes: string
+    data: string
 
-    @Column()
-    mes_do_ano: string
 
 }
