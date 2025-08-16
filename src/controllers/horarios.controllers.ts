@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { CreateHorarioService } from "../services/Horario/createHorario.service"
 import { getAllHorarioService } from "../services/Horario/getAllHorarios.service";
+import { UpdateHorarioService } from "../services/Horario/updateHorario.service";
 
 export const CreateHorarioController = async (req: Request, res: Response):Promise<Response> =>{
     const horarioData = req.body
@@ -12,3 +13,9 @@ export const getAllHorariosController = async(req:Request, res:Response):Promise
     return res.status(200).json(horario)
 }
  
+export const UpdateHorarioController = async(req:Request, res:Response):Promise<Response> =>{
+    const horarioId = req.params.id
+    const horarioData = req.body
+    const horario = await UpdateHorarioService(horarioId,horarioData)
+    return res.status(200).json(horario)
+}
