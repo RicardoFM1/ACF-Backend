@@ -1,5 +1,6 @@
 import { Column, Decimal128, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Horarios } from "./horarios.entitie";
+import { truncates } from "bcryptjs";
 
 @Entity("campos")
 export class Campos {
@@ -15,7 +16,7 @@ export class Campos {
     @Column()
     descricao: string
 
-    @ManyToOne(() => Horarios)
+    @ManyToOne(() => Horarios, {onDelete: "CASCADE"})
     horarios: Horarios
 
     @Column()

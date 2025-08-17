@@ -9,7 +9,6 @@ export const createAgendamentoController = async(req:Request, res:Response):Prom
     const agendamentoData = req.body
 
     const agendamento:iReturnAgendamento = await createAgendamentoService(agendamentoData)
-    //return agendamento
     return res.status(201).json(agendamento)    
 }
 

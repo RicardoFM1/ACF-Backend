@@ -5,7 +5,7 @@ import { AppError } from "../../errors"
 
 export const DeleteHorarioService = async(horarioId:string):Promise<void> => {
     const horarioRepository:Repository<Horarios> = AppDataSource.getRepository(Horarios)
-
+    
     const horarioFind:Horarios|null = await horarioRepository.findOne({
         where: {
             id: parseInt(horarioId)
@@ -15,4 +15,6 @@ export const DeleteHorarioService = async(horarioId:string):Promise<void> => {
         throw new AppError("Horario não encontrado!")
     }
     await horarioRepository.remove(horarioFind)
+
+    
 }
