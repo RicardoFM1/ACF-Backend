@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createAgendamentoController, GetAllAgendamentosController } from "../controllers/agendamentos.controllers";
+import { createAgendamentoController, DeleteAgendamentoController, GetAllAgendamentosController, UpdateAgendamentosController } from "../controllers/agendamentos.controllers";
 
 export const agendamentosRoutes:Router = Router()
 
 agendamentosRoutes.post("", createAgendamentoController)
 agendamentosRoutes.get("", GetAllAgendamentosController)
-agendamentosRoutes.patch("")
-agendamentosRoutes.delete("")
+agendamentosRoutes.patch("/:id", UpdateAgendamentosController)
+agendamentosRoutes.delete("/:id", DeleteAgendamentoController)

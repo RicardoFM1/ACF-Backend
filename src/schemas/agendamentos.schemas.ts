@@ -1,13 +1,12 @@
-import z from "zod";
+import z, { date } from "zod";
 import { returnCamposSchema } from "./campos.schemas";
 import { returnUserSchema } from "./usuarios.schemas";
 import { returnHorarioSchema } from "./horarios.schemas";
 
 export const createAgendamentoSchema = z.object({
     horario: z.string(),
-    dia_do_mes: z.string(),
-    mes_do_ano: z.string(),
     camposId: z.number(),
+    data: z.string(),
     usuariosId: z.number()
 })
 
@@ -15,9 +14,8 @@ export const returnAgendamentoSchema = z.object({
     id: z.number(),
     campos: returnCamposSchema,
     horario: z.string(),
+    data: z.string(),
     usuarios: returnUserSchema,
-    data: z.string()
-   
 })
 
 export const returnAllAgendamentosSchema = returnAgendamentoSchema.array()
