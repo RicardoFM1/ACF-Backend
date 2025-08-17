@@ -3,7 +3,7 @@ import {z} from "zod"
 
 export const createUserSchema = z.object({
     email: z.string().email("Email inválido"),
-    password: z.string(),
+    password: z.string().min(8, "Minimo 8 caractéres"),
     admin: z.boolean().default(false)
 })
 

@@ -3,7 +3,7 @@ import { returnUserSchema } from "./usuarios.schemas"
 
 export const CreateLoginSchema = z.object({
     email: z.string().email("Email inválido"),
-    password: z.string().min(8, "minímo 8 caractéres")
+    password: z.string()
 })
 export const returnLoginSchema = z.object({
     usuario:returnUserSchema,
