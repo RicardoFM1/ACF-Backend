@@ -1,9 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Campos } from "./campos.entitie";
 
 @Entity("horarios")
 export class Horarios{
     @PrimaryGeneratedColumn("increment")
     id: number
+
+    @ManyToOne(() => Campos)
+    campos: Campos
 
     @Column()
     dia_da_semana: string

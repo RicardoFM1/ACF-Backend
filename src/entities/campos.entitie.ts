@@ -16,9 +16,6 @@ export class Campos {
     @Column()
     descricao: string
 
-    @ManyToOne(() => Horarios, {onDelete: "CASCADE"})
-    horarios: Horarios
-
     @Column()
     imagem: string
 
