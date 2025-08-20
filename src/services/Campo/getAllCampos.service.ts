@@ -8,11 +8,7 @@ import { iReturnAllCampos, returnAllCamposSchema } from "../../schemas/campos.sc
 export const getAllCamposService = async():Promise<iReturnAllCampos> => {
 const campoRepository:Repository<Campos> = AppDataSource.getRepository(Campos)
 
-const campoFind:Campos[] = await campoRepository.find({
-    relations:{
-        horarios:true
-    }
-})
+const campoFind:Campos[] = await campoRepository.find()
 
     const campoSort = campoFind.sort((num1, num2) => num1.id - num2.id)
     const campo = returnAllCamposSchema.parse(campoSort)

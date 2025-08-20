@@ -12,9 +12,7 @@ export const UpdateAgendamentosService = async(agendamentoId:string, agendamento
             id: parseInt(agendamentoId)
         },
         relations:{
-            campos:{
-                horarios: true
-            },
+            campos: true,
             usuarios: true
         }
     })

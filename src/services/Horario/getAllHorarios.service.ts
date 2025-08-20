@@ -7,7 +7,11 @@ import { AppError } from "../../errors"
 export const getAllHorarioService= async():Promise<iReturnAllHorarios> => {
     const horarioRepository:Repository<Horarios> =AppDataSource.getRepository(Horarios)
 
-    const horarioFind:Horarios[] = await horarioRepository.find() 
+    const horarioFind:Horarios[] = await horarioRepository.find({
+        relations:{
+            campos: true
+        }
+    }) 
 
     if(!horarioFind){
         throw new AppError("Horario não encontrado!")

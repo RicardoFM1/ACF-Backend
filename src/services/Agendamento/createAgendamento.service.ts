@@ -21,9 +21,6 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
     const campoFind:Campos|null = await campoRepository.findOne({
         where:{
             id: agendamentoData.camposId
-        },
-        relations:{
-            horarios:true
         }
     })
     if(!usuarioFind){

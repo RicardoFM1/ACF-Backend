@@ -1,6 +1,4 @@
-import { Column, Decimal128, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Horarios } from "./horarios.entitie";
-import { truncates } from "bcryptjs";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("campos")
 export class Campos {

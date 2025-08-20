@@ -10,6 +10,9 @@ export const UpdateHorarioService = async(horarioId:string, horarioData:iCreateH
     const horarioFind:Horarios|null = await horarioRepository.findOne({
         where:{
             id: parseInt(horarioId)
+        },
+        relations:{
+            campos: true
         }
 
     })

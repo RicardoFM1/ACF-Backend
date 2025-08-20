@@ -10,9 +10,6 @@ export const UpdateCampoService = async(campoId:string, campoData:iCreateCampo):
     const campoFind:Campos|null = await campoRepository.findOne({
         where:{
             id: parseInt(campoId)
-        },
-        relations:{
-            horarios: true
         }
     })
     if(!campoFind){

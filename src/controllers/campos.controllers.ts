@@ -4,6 +4,7 @@ import { iReturnCampo } from "../schemas/campos.schemas";
 import { getAllCamposService } from "../services/Campo/getAllCampos.service";
 import { UpdateCampoService } from "../services/Campo/updateCampo.service";
 import { DeleteCampoService } from "../services/Campo/deleteCampo.service";
+import { GetCamposByidService } from "../services/Campo/getCamposById.service";
 
 export const CreateCamposController = async (req: Request, res: Response):Promise<any> =>{
     const campoData = req.body
@@ -15,6 +16,12 @@ export const CreateCamposController = async (req: Request, res: Response):Promis
 export const getAllCamposController = async(req:Request, res:Response):Promise<Response> => { 
     const campo = await getAllCamposService()
      return res.status(200).json(campo)
+}
+
+export const GetCamposByIdController = async(req:Request, res:Response):Promise<Response> => {
+    const campoId = req.params.id
+    const campo = await GetCamposByidService(campoId)
+    return res.status(200).json(campo)
 }
 
 export const UpdateCampoController = async(req:Request, res:Response):Promise<Response> => {

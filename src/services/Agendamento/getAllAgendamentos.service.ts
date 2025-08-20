@@ -9,9 +9,7 @@ export const GetAllAgendamentosService = async():Promise<iReturnAllAgendamentos>
 
     const agendamentosFind:Agendamentos[] = await agendamentoRepository.find({
         relations:{
-            campos: {
-                horarios: true
-            },
+            campos: true,
             usuarios: true
         }
     })
