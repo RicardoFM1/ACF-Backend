@@ -9,8 +9,11 @@ export const createHorarioSchema = z.object({
     camposId: z.number()
 })
 
-export const returnHorarioSchema = createHorarioSchema.extend({
+export const returnHorarioSchema = z.object({
     id: z.number(),
+    dia_da_semana: z.string(),
+    horario_inicial: z.string(),
+    horario_final: z.string(),
     campos: returnCamposSchema
 })
 
