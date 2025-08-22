@@ -30,7 +30,7 @@ export const createLoginService=async(loginData:iCreateLogin):Promise<iReturnLog
         },
         process.env.SECRET_KEY!,
         {
-            expiresIn:"24h",
+            expiresIn:"128h",
             subject:String(findUser.id)
         }
     )

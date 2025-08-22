@@ -4,10 +4,10 @@ import { returnUserSchema } from "./usuarios.schemas";
 import { returnHorarioSchema } from "./horarios.schemas";
 
 export const createAgendamentoSchema = z.object({
-    horario: z.string(),
-    camposId: z.number(),
-    data: z.string(),
-    usuariosId: z.number()
+    horario: z.string().min(1, "Necessário preencher"),
+    camposId: z.number().min(1, "Necessário preencher"),
+    data: z.string().min(1, "Necessário preencher"),
+    usuariosId: z.number().min(1, "Necessário preencher")
 })
 
 export const returnAgendamentoSchema = z.object({
