@@ -1,14 +1,14 @@
 import { Repository } from "typeorm";
-import { iReturnAgendamento, returnAgendamentoSchema } from "../../schemas/agendamentos.schemas";
+import {  iReturnAgendamento, iReturnAllAgendamentos, returnAgendamentoSchema, returnAllAgendamentosSchema } from "../../schemas/agendamentos.schemas";
 import { Agendamentos } from "../../entities/agendamentos.entitie";
 import { AppDataSource } from "../../data-source";
 import { AppError } from "../../errors";
 
 
-export const GetAgendamentoByUserIdService = async(userId:string):Promise<iReturnAgendamento> => {
+export const GetAgendamentoByUserIdService = async(userId:string):Promise<iReturnAllAgendamentos> => {
     const agendamentoRepository:Repository<Agendamentos> = AppDataSource.getRepository(Agendamentos)
 
-    const agendamentoFind:Agendamentos|null = await agendamentoRepository.findOne({
+    const agendamentoFind:Agendamentos[]|[] = await agendamentoRepository.find({
         where:{
           usuarios: {
             id: parseInt(userId)
@@ -22,6 +22,7 @@ export const GetAgendamentoByUserIdService = async(userId:string):Promise<iRetur
     if(!agendamentoFind){
         throw new AppError("Agendamento do usuario não encontrado!")
     }
-   const agendamento = returnAgendamentoSchema.parse(agendamentoFind)
+    const agendamentosSort = agendamentoFind.sort((num1, num2) => num1.id - num2.id)
+   const agendamento = returnAllAgendamentosSchema.parse(agendamentosSort)
    return agendamento
 }

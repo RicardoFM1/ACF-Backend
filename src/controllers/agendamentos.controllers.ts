@@ -19,7 +19,7 @@ export const GetAllAgendamentosController = async(req:Request, res:Response):Pro
 }
 
 export const GetAgendamentoByUserIdController = async(req:Request, res:Response):Promise<Response> => {
-    const userId = req.params.userId
+    const userId = req.params.id
     const agendamento = await GetAgendamentoByUserIdService(userId)
     return res.status(200).json(agendamento)
 }

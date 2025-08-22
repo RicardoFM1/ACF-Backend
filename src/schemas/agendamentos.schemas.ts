@@ -16,7 +16,7 @@ export const returnAgendamentoSchema = z.object({
     horario: z.string(),
     data: z.string(),
     usuarios: returnUserSchema,
-})
+})                  
 
 export const returnAllAgendamentosSchema = returnAgendamentoSchema.array()
 

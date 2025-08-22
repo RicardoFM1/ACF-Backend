@@ -5,6 +5,6 @@ export const agendamentosRoutes:Router = Router()
 
 agendamentosRoutes.post("", createAgendamentoController)
 agendamentosRoutes.get("", GetAllAgendamentosController)
-agendamentosRoutes.get("/usuario/:userId", GetAgendamentoByUserIdController)
+agendamentosRoutes.get("/usuario/:id", GetAgendamentoByUserIdController)
 agendamentosRoutes.patch("/:id", UpdateAgendamentosController)
 agendamentosRoutes.delete("/:id", DeleteAgendamentoController)
