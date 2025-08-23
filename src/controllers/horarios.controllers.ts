@@ -3,6 +3,7 @@ import { CreateHorarioService } from "../services/Horario/createHorario.service"
 import { getAllHorarioService } from "../services/Horario/getAllHorarios.service";
 import { UpdateHorarioService } from "../services/Horario/updateHorario.service";
 import { DeleteHorarioService } from "../services/Horario/deleteHorario.service";
+import { getHorariosByCampoIdService } from "../services/Horario/getHorarioByCampoId.service";
 
 export const CreateHorarioController = async (req: Request, res: Response):Promise<Response> =>{
     const horarioData = req.body
@@ -14,6 +15,14 @@ export const getAllHorariosController = async(req:Request, res:Response):Promise
     return res.status(200).json(horario)
 }
  
+export const getHorariosByCampoIdController = async(req:Request, res:Response):Promise<Response> => {
+    const campoId = req.params.campoId
+    const diaSemana = req.params.diaSemana
+
+    const horario = await getHorariosByCampoIdService(campoId, diaSemana)
+    return res.status(200).json(horario)
+}
+
 export const UpdateHorarioController = async(req:Request, res:Response):Promise<Response> =>{
     const horarioId = req.params.id
     const horarioData = req.body
