@@ -17,6 +17,8 @@ export const getHorariosByCampoIdService = async(campoId:string, diaSemana:strin
     
         relations:{
             campos: true
+        },order:{
+            id:"DESC"
         }
     }) 
 

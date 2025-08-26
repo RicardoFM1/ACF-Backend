@@ -10,6 +10,8 @@ export const GetCamposByidService = async(camposId:string):Promise<iReturnCampo>
     const campoFind:Campos|null = await camposRepository.findOne({
         where:{
             id: parseInt(camposId)
+        },order:{
+            id:"DESC"
         }
     })
     if(!campoFind){

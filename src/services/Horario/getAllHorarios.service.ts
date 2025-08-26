@@ -10,6 +10,8 @@ export const getAllHorarioService= async():Promise<iReturnAllHorarios> => {
     const horarioFind:Horarios[] = await horarioRepository.find({
         relations:{
             campos: true
+        },order:{
+            id: "DESC"
         }
     }) 
 
