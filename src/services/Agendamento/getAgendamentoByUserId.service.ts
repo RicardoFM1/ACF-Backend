@@ -13,10 +13,14 @@ export const GetAgendamentoByUserIdService = async(userId:string):Promise<iRetur
           usuarios: {
             id: parseInt(userId)
           }
+
+          
         },
         relations: {
             usuarios: true,
             campos: true
+        },order:{
+          id: "DESC"
         }
     })
     if(!agendamentoFind){

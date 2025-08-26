@@ -11,12 +11,14 @@ export const GetAllAgendamentosService = async():Promise<iReturnAllAgendamentos>
         relations:{
             campos: true,
             usuarios: true
+        },order:{
+            id:"DESC"
         }
     })
     if(!agendamentosFind){
         throw new AppError("Agendamento não encontrado!")
     }
-    const agendamentosSort = agendamentosFind.sort((num1, num2) => num1.id - num2.id)
-    const agendamentos = returnAllAgendamentosSchema.parse(agendamentosSort)
+  
+    const agendamentos = returnAllAgendamentosSchema.parse(agendamentosFind)
     return agendamentos
 }
