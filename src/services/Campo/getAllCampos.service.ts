@@ -8,6 +8,7 @@ import { Agendamentos } from "../../entities/agendamentos.entitie"
 
 export const getAllCamposService = async(status:string):Promise<iReturnAllCampos> => {
 const campoRepository:Repository<Campos> = AppDataSource.getRepository(Campos)
+
 const agendamentoRepository:Repository<Agendamentos>= AppDataSource.getRepository(Agendamentos)
 
 // const findAgendamentos 
