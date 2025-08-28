@@ -6,6 +6,7 @@ import { UpdateAgendamentosService } from "../services/Agendamento/updateAgendam
 import { DeleteAgendamentoService } from "../services/Agendamento/deleteAgendamento.service";
 import { GetAgendamentoByUserIdService } from "../services/Agendamento/getAgendamentoByUserId.service";
 
+
 export const createAgendamentoController = async(req:Request, res:Response):Promise<Response> =>{
     const agendamentoData = req.body
 
@@ -17,6 +18,7 @@ export const GetAllAgendamentosController = async(req:Request, res:Response):Pro
     const agendamentos = await GetAllAgendamentosService()
     return res.status(200).json(agendamentos)
 }
+
 
 export const GetAgendamentoByUserIdController = async(req:Request, res:Response):Promise<Response> => {
     const userId = req.params.id

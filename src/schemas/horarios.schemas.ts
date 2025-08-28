@@ -1,6 +1,7 @@
 import e from "express";
 import z from "zod";
 import { returnCamposSchema } from "./campos.schemas";
+import { returnAgendamentoSchema } from "./agendamentos.schemas";
 
 export const createHorarioSchema = z.object({
     dia_da_semana: z.string().min(1, "Necessário preencher"),
@@ -14,7 +15,8 @@ export const returnHorarioSchema = z.object({
     dia_da_semana: z.string(),
     horario_inicial: z.string(),
     horario_final: z.string(),
-    campos: returnCamposSchema
+    campos: returnCamposSchema,
+    agendamentos:returnAgendamentoSchema.omit({usuarios:true}).array()
 })
 
 export const returnAllHorariosSchema = returnHorarioSchema.array()

@@ -14,7 +14,8 @@ export const CreateCamposController = async (req: Request, res: Response):Promis
 }   
 
 export const getAllCamposController = async(req:Request, res:Response):Promise<Response> => { 
-    const campo = await getAllCamposService()
+    const status = req.query.status as string
+    const campo = await getAllCamposService(status)
      return res.status(200).json(campo)
 }
 
