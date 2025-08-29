@@ -17,7 +17,7 @@ export class Campos {
     @Column()
     imagem: string
     
-    @Column()
+    @Column({default: "inativo", type: "varchar"})
     status: string
 
     @Column()

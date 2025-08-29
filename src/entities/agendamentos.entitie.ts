@@ -16,7 +16,7 @@ export class Agendamentos{
     @ManyToOne(() => Usuarios)
     usuarios: Usuarios
 
-    @Column()
+    @Column({default: "inativo", type: "varchar"})
     status: string
 
     @Column()

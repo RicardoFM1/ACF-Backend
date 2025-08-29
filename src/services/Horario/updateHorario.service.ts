@@ -1,29 +1,38 @@
 import { Repository } from "typeorm"
 import { Horarios } from "../../entities/horarios.entitie"
 import { AppDataSource } from "../../data-source"
-import { iCreateHorario, iReturnHorario, returnHorarioSchema } from "../../schemas/horarios.schemas"
+import { iCreateHorario, iCreateHorarios, iReturnHorario, returnAllHorariosSchema, returnHorarioSchema } from "../../schemas/horarios.schemas"
 import { AppError } from "../../errors"
 
-export const UpdateHorarioService = async(horarioId:string, horarioData:iCreateHorario):Promise<iReturnHorario> => {
+export const UpdateHorarioService = async(campoId:string, horarioData:iCreateHorarios):Promise<any> => {
     const horarioRepository:Repository<Horarios> = AppDataSource.getRepository(Horarios)
-
-    const horarioFind:Horarios|null = await horarioRepository.findOne({
+//iReturnHorario[]
+    const horariosFind:Horarios[]|[] = await horarioRepository.find({
         where:{
-            id: parseInt(horarioId)
+          
+            campos:{
+                id:parseInt(campoId)
+            }
         },
         relations:{
             campos: true
         }
-
     })
-    if(!horarioFind){
-        throw new AppError("Horario não encontrado!")
+    let horarios =[]
+    for(const horario of horarioData){
+        
+        const findHorario = horariosFind.find((item)=>item.dia_da_semana===horario.dia_da_semana)
+    
+            const createHorario = horarioRepository.create({
+                ...findHorario,
+                ...horario,campos:{
+                    id:horario.camposId
+                }
+            })
+            await horarioRepository.save(createHorario)
+        horarios.push(createHorario)
     }
-    const updateHorario = horarioRepository.create({
-        ...horarioFind,
-        ...horarioData
-    })
-    await horarioRepository.save(updateHorario)
-    const horario = returnHorarioSchema.parse(updateHorario)
-    return horario
+   
+     const horariosReturn = returnAllHorariosSchema.parse(horarios)
+    return horariosReturn
 }
