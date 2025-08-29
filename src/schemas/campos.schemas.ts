@@ -6,7 +6,8 @@ export const createCamposSchema = z.object({
     endereco: z.string().min(1, "Necessário preencher"),
     descricao: z.string().min(1, "Necessário preencher"),
     imagem: z.string(),
-    valor: z.number().min(1, "Necessário preencher")
+    valor: z.number().min(1, "Necessário preencher"),
+    status: z.string()
 })
 
 
@@ -17,6 +18,7 @@ export const returnCamposSchema = z.object({
         descricao: z.string().min(1, "Necessário preencher"),
         valor: z.number().min(1, "Necessário preencher"),
         imagem: z.string(),
+        status: z.string()
 })
 
 export const returnAllCamposSchema = returnCamposSchema.array() 

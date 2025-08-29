@@ -16,6 +16,9 @@ export class Campos {
 
     @Column()
     imagem: string
+    
+    @Column()
+    status: string
 
     @Column()
     valor: number

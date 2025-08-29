@@ -40,7 +40,10 @@ export const getHorariosByCampoIdService = async(campoId:string, diaSemana:strin
         throw new AppError("Horario não encontrado!")
     }
 
-    //const horariosSort = horarioFind.sort((num1, num2) => num1.id - num2.id)
+    if(!findAgendamentos){
+        throw new AppError("Agendamento não encontrado!")
+    }
+  
     const obj={
         ...horarioFind,
         agendamentos:findAgendamentos

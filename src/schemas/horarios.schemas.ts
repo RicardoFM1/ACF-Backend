@@ -7,7 +7,8 @@ export const createHorarioSchema = z.object({
     dia_da_semana: z.string().min(1, "Necessário preencher"),
     horario_inicial: z.string().min(1, "Necessário preencher"),
     horario_final: z.string().min(1, "Necessário preencher"),
-    camposId: z.number().min(1, "Necessário preencher")
+    camposId: z.number().min(1, "Necessário preencher"),
+    status: z.string()
 })
 
 export const returnHorarioSchema = z.object({
@@ -16,7 +17,8 @@ export const returnHorarioSchema = z.object({
     horario_inicial: z.string(),
     horario_final: z.string(),
     campos: returnCamposSchema,
-    agendamentos:returnAgendamentoSchema.omit({usuarios:true}).array()
+    agendamentos:returnAgendamentoSchema.omit({usuarios:true}).array().optional(),
+    status: z.string()
 })
 
 export const returnAllHorariosSchema = returnHorarioSchema.array()

@@ -17,6 +17,9 @@ export class Agendamentos{
     usuarios: Usuarios
 
     @Column()
+    status: string
+
+    @Column()
     data: string
 
 

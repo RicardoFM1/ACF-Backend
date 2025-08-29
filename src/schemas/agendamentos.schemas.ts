@@ -7,7 +7,8 @@ export const createAgendamentoSchema = z.object({
     horario: z.string().min(1, "Necessário preencher"),
     camposId: z.number().min(1, "Necessário preencher"),
     data: z.string().min(1, "Necessário preencher"),
-    usuariosId: z.number().min(1, "Necessário preencher")
+    usuariosId: z.number().min(1, "Necessário preencher"),
+    status: z.string()
 })
 
 export const returnAgendamentoSchema = z.object({
@@ -16,6 +17,7 @@ export const returnAgendamentoSchema = z.object({
     horario: z.string(),
     data: z.string(),
     usuarios: returnUserSchema,
+    status: z.string()
 })                  
 
 export const returnAllAgendamentosSchema = returnAgendamentoSchema.array()

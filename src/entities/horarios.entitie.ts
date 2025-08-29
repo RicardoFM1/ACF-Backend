@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Campos } from "./campos.entitie";
+import { Agendamentos } from "./agendamentos.entitie";
 
 @Entity("horarios")
 export class Horarios{
@@ -11,6 +12,9 @@ export class Horarios{
 
     @Column()
     dia_da_semana: string
+
+    @Column()
+    status: string
 
     @Column()
     horario_inicial: string
