@@ -15,7 +15,7 @@ const campoFind:Campos[] = await campoRepository.find({
     relations:{
         
     },where:{
-       descricao:status
+       status:status
     },order:{
         id: "DESC"
     }
