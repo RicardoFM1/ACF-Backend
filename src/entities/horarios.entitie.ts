@@ -13,7 +13,7 @@ export class Horarios{
     @Column()
     dia_da_semana: string
 
-    @Column({default: "inativo", type: "varchar"})
+    @Column({default: "inativo", type: "enum"})
     status: string
 
     @Column()

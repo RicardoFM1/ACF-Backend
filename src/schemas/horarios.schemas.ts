@@ -3,6 +3,7 @@ import z from "zod";
 import { returnCamposSchema } from "./campos.schemas";
 import { returnAgendamentoSchema } from "./agendamentos.schemas";
 
+
 export const createHorarioSchema = z.object({
     dia_da_semana: z.string().min(1, "Necessário preencher"),
     horario_inicial: z.string().min(1, "Necessário preencher"),
