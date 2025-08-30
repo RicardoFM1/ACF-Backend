@@ -43,11 +43,12 @@ export const getHorariosByCampoIdService = async(campoId:string, diaSemana:strin
     if(!findAgendamentos){
         throw new AppError("Agendamento não encontrado!")
     }
+    console.log(findAgendamentos,"agendaentos")
   
     const obj={
         ...horarioFind,
         agendamentos:findAgendamentos
     }
     const horario = returnHorarioSchema.parse(obj)
-     return horario
+     return [horario]
 }
