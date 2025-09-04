@@ -15,8 +15,11 @@ export const CreateCamposController = async (req: Request, res: Response):Promis
 
 export const getAllCamposController = async(req:Request, res:Response):Promise<Response> => { 
     const status = req.query.status as string
-    const offset = req.query.offset as string 
-    const limit = req.query.limit as string
+    const offset =  req.query.offset ? parseInt(req.query.offset as string) : 0
+    const limit = req.query.limit ? parseInt(req.query.limit as string) : 5 
+    console.log("status:", req.query.status)
+console.log("offset:", req.query.offset)
+console.log("limit:", req.query.limit)
     const campo = await getAllCamposService(status, offset, limit)
      return res.status(200).json(campo)
 }
