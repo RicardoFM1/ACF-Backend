@@ -15,14 +15,16 @@ export const createAgendamentoController = async(req:Request, res:Response):Prom
 }
 
 export const GetAllAgendamentosController = async(req:Request, res:Response):Promise<Response> =>{
-    const agendamentos = await GetAllAgendamentosService()
+    const status = req.query.status as string
+    const agendamentos = await GetAllAgendamentosService(status)
     return res.status(200).json(agendamentos)
 }
 
 
 export const GetAgendamentoByUserIdController = async(req:Request, res:Response):Promise<Response> => {
     const userId = req.params.id
-    const agendamento = await GetAgendamentoByUserIdService(userId)
+    const status = req.query.status as string
+    const agendamento = await GetAgendamentoByUserIdService(userId, status)
     return res.status(200).json(agendamento)
 }
 export const UpdateAgendamentosController = async(req:Request, res:Response):Promise<Response> => {

@@ -5,14 +5,15 @@ import { AppDataSource } from "../../data-source";
 import { AppError } from "../../errors";
 
 
-export const GetAgendamentoByUserIdService = async(userId:string):Promise<iReturnAllAgendamentos> => {
+export const GetAgendamentoByUserIdService = async(userId:string, status:string):Promise<iReturnAllAgendamentos> => {
     const agendamentoRepository:Repository<Agendamentos> = AppDataSource.getRepository(Agendamentos)
 
     const agendamentoFind:Agendamentos[]|[] = await agendamentoRepository.find({
         where:{
           usuarios: {
             id: parseInt(userId)
-          }
+          },
+          status: status
 
           
         },

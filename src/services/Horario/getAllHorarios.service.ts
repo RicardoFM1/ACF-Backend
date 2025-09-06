@@ -6,7 +6,7 @@ import { AppError } from "../../errors"
 
 export const getAllHorarioService= async():Promise<iReturnAllHorarios> => {
     
-    const horarioRepository:Repository<Horarios> =AppDataSource.getRepository(Horarios)
+    const horarioRepository:Repository<Horarios> = AppDataSource.getRepository(Horarios)
 
     const horarioFind:Horarios[] = await horarioRepository.find({
         relations:{

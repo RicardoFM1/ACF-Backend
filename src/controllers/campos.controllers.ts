@@ -31,11 +31,11 @@ export const GetCamposByIdController = async(req:Request, res:Response):Promise<
 }
 
 export const UpdateCampoController = async(req:Request, res:Response):Promise<Response> => {
-    const campoId = req.params.id
-    const campoData = req.body
+    const { id } = req.params;
+  const campoData = req.body; 
 
-    const campo = await UpdateCampoService(campoId, campoData)
-    return res.status(200).json(campo)
+  const updatedCampo = await UpdateCampoService(id, campoData);
+    return res.status(200).json(updatedCampo)
 }
 
 export const DeleteCampoController = async(req:Request, res:Response):Promise<Response> => {

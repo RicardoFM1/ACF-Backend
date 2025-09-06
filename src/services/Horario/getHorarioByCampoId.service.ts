@@ -1,7 +1,7 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../data-source"
 import { Horarios } from "../../entities/horarios.entitie"
-import { iReturnAllHorarios, iReturnHorario, returnAllHorariosSchema, returnHorarioSchema } from "../../schemas/horarios.schemas"
+import { returnHorarioSchema } from "../../schemas/horarios.schemas"
 import { AppError } from "../../errors"
 import { Agendamentos } from "../../entities/agendamentos.entitie"
 
@@ -20,7 +20,6 @@ export const getHorariosByCampoIdService = async(campoId:string, diaSemana:strin
             campos:true
         }
     })
-        console.log(findAgendamentos,"agendamentos")
      const horarioFind:Horarios|null = await horarioRepository.findOne({
         where:{
             campos: {
@@ -43,7 +42,6 @@ export const getHorariosByCampoIdService = async(campoId:string, diaSemana:strin
     if(!findAgendamentos){
         throw new AppError("Agendamento não encontrado!")
     }
-    console.log(findAgendamentos,"agendaentos")
   
     const obj={
         ...horarioFind,

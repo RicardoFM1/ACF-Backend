@@ -30,7 +30,7 @@ export const createAgendamentoService = async(agendamentoData:iCreateAgendamento
     if(!campoFind){
         throw new AppError("Campo não encontrado!")
     }
-    console.log(campoFind,"cMPO?")
+
     const createAgendamento:Agendamentos = agendamentoRepository.create({
         ...agendamentoData,
         campos:  campoFind,
