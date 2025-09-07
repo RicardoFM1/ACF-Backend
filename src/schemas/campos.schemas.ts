@@ -2,7 +2,7 @@ import z from "zod"
 import { returnHorarioSchema } from "./horarios.schemas"
 
 export const createCamposSchema = z.object({
-    nome: z.string().min(1, "Necessário preencher"),
+    nome: z.string().min(1, "Necessário preencher").max(10, "Nome muito longo!"),
     endereco: z.string().min(1, "Necessário preencher"),
     descricao: z.string().min(1, "Necessário preencher"),
     imagem: z.string(),
