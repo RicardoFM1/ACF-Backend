@@ -27,6 +27,4 @@ await transporter.sendMail({
   subject: "Redefinição de senha",
   html: `<p>Clique no link para redefinir sua senha:</p><a href="${link}">${link}</a>`,
 });
-
-  return { message: "Link de redefinição enviado por email." };
 };
