@@ -11,7 +11,7 @@ export const ForgotPasswordService = async (email: string) => {
   if (!user) throw new AppError("Usuário não encontrado", 404);
 
   const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY!, { expiresIn: "1h" });
-  const link = `http://localhost:3001/reset-password/${token}`;
+  const link = `https://acf-frontend-4.onrender.com/${token}`;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
