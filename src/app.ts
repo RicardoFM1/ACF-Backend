@@ -9,6 +9,7 @@ import { usuariosRoutes } from './Routes/usuarios.routes'
 import { horariosRoutes } from './Routes/horarios.routes'
 import { camposRoutes } from './Routes/campos.routes'
 import { agendamentosRoutes } from './Routes/agendamentos.routes'
+import { authRoutes } from './Routes/auth.routes'
 
 
 const app:Application = express()
@@ -20,6 +21,7 @@ app.use("/usuarios", usuariosRoutes)
 app.use("/horarios", horariosRoutes)
 app.use("/campos", camposRoutes)
 app.use("/agendamentos", agendamentosRoutes)
+app.use("/auth", authRoutes)
 
 app.use(handleErrors)
 export default app

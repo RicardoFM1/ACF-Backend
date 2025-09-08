@@ -3,6 +3,8 @@ import { createUserController, getAllUsersController, usuarioRetrieveController 
 import { validateDataMiddleware } from "../middleware/validateData.middleware";
 import { createUserSchema } from "../schemas/usuarios.schemas";
 import { validateTokenMiddleware } from "../middleware/validateToken.middleware";
+import { ResetPasswordService } from "../services/User/resetPassword.service";
+import { ForgotPasswordService } from "../services/User/forgotPassword.service";
 
 export const usuariosRoutes:Router = Router()
 
