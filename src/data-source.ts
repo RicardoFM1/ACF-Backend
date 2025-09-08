@@ -13,8 +13,9 @@ const dataSourceConfig = (): DataSourceOptions => {
   const dbUrl: string | undefined = process.env.DATABASE_URL;
 
   if (!dbUrl) {
-    throw new Error("Env var DATABASE_URL does not exists");
+    throw new Error("Env var DATABASE_URL does not exist");
   }
+
   return {
     type: "postgres",
     url: dbUrl,
@@ -22,11 +23,10 @@ const dataSourceConfig = (): DataSourceOptions => {
     logging: true,
     migrations: [migrationsPath],
     entities: [entitiesPath],
+    ssl: { rejectUnauthorized: false } 
   };
 };
 
 const AppDataSource = new DataSource(dataSourceConfig());
-//npm run typeorm migration:generate ./src/migrations/InitialMigration -- -d ./src/data-source.ts
-//npm run typeorm migration:run -- -d ./src/data-source
 
 export { AppDataSource };
