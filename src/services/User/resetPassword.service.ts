@@ -14,8 +14,8 @@ export const ResetPasswordService = async (token: string, novaSenha: string) => 
     const user = await userRepo.findOne({ where: { id: decoded.id } });
     if (!user) throw new AppError("Usuário não encontrado", 404);
 
-    if (novaSenha.length < 6)
-      throw new AppError("A senha deve ter pelo menos 6 caracteres", 400);
+    if (novaSenha.length < 8)
+      throw new AppError("A senha deve ter pelo menos 8 caracteres", 400);
 
     const hash = await bcrypt.hash(novaSenha, 10);
     user.password = hash;
