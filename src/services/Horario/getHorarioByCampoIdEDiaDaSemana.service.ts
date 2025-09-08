@@ -5,7 +5,7 @@ import { returnHorarioSchema } from "../../schemas/horarios.schemas"
 import { AppError } from "../../errors"
 import { Agendamentos } from "../../entities/agendamentos.entitie"
 
-export const getHorariosByCampoIdService = async(campoId:string):Promise<any> => {
+export const getHorariosByCampoIdEDiaDaSemanaService = async(campoId:string, diaSemana:string):Promise<any> => {
     const horarioRepository:Repository<Horarios> =AppDataSource.getRepository(Horarios)
      const agendamentoRepository:Repository<Agendamentos> = AppDataSource.getRepository(Agendamentos)
     const findAgendamentos:Agendamentos[]|[]=await agendamentoRepository.find({
@@ -25,7 +25,7 @@ export const getHorariosByCampoIdService = async(campoId:string):Promise<any> =>
             campos: {
                 id: parseInt(campoId)
             },
-            
+            dia_da_semana: diaSemana
         },
     
         relations:{

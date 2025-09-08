@@ -11,7 +11,7 @@ export const getAllCamposService = async (
   const campoRepository: Repository<Campos> = AppDataSource.getRepository(Campos);
 
   const [campoFind, total] = await campoRepository.findAndCount({
-    where: { status },
+    where: { status: status },
     order: { id: "DESC" },
     take: limit,
     skip: offset,
