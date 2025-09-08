@@ -16,8 +16,8 @@ export const resetPasswordController = async (req:Request, res:Response) => {
   try {
     const { token, novaSenha } = req.body;
     const result = await ResetPasswordService(token, novaSenha);
-    res.status(200).json(result);
+    return res.status(200).json({message: "Senha redefinida com sucesso!"});
   } catch (err: any) {
-    res.status(err.statusCode || 500).json({ message: err.message });
+    return res.status(err.statusCode || 500).json({ message: err.message });
   }
 }

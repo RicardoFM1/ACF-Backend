@@ -21,7 +21,6 @@ export const ResetPasswordService = async (token: string, novaSenha: string) => 
     user.password = hash;
     await userRepo.save(user);
 
-    return { message: "Senha redefinida com sucesso!" };
   } catch {
     throw new AppError("Token inválido ou expirado", 400);
   }
