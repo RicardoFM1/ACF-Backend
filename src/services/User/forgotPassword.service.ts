@@ -11,7 +11,7 @@ export const ForgotPasswordService = async (email: string) => {
   if (!user) throw new AppError("Usuário não encontrado", 404);
 
   const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY!, { expiresIn: "1h" });
-  const link = `https://acf-frontend-4.onrender.com/${token}`;
+  const link = `https://acf-frontend-4.onrender.com/reset-password/${token}`;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 });
 
 await transporter.sendMail({
-  from: `"Meu Site" <${process.env.EMAIL_USER}>`,
+  from: `"ACF Sistemas" <${process.env.EMAIL_USER}>`,
   to: user.email, 
   subject: "Redefinição de senha",
   html: `<p>Clique no link para redefinir sua senha:</p><a href="${link}">${link}</a>`,
